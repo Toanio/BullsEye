@@ -10,21 +10,24 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    var currentValue: Int = 0
+    @IBOutlet weak var slider: UISlider!
+    var currentValue: Int = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        currentValue = lroundf(slider.value)
     }
 
     @IBAction func showAlert() {
+        let message = "The value of the slider is: \(lroundf(slider.value))"
+        
         let alert = UIAlertController(
             title: "Hello World!",
-            message: "This is my first app!",
+            message: message,
             preferredStyle: .alert)
         
         let action = UIAlertAction(
-        title: "Awesome",
+        title: "OK",
         style: .default,
         handler: nil)
         
