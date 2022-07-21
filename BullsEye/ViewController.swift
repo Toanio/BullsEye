@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             difference = 0
         }
         
-        let message = "The value of the slider is: \(lroundf(slider.value))" +
+        let message = "The value of the slider is: \(currentValue)" +
         "\nThe target value is: \(targetValue)" + "\nThe defference is: \(difference)"
         
         let alert = UIAlertController(
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         startNewRound()
     }
     @IBAction func sliderMoved(_ slider: UISlider) {
-        print("The value of the slider is now: \(slider.value)")
+        currentValue = lroundf(slider.value)
     }
     
     func startNewRound() {
