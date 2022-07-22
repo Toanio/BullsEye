@@ -28,16 +28,31 @@ class ViewController: UIViewController {
     @IBAction func showAlert() {
         
         let difference = abs(currentValue - targetValue)
-        let points = 100 - difference
+        var points = 100 - difference
         
         let message = "You scored \(points) points"
         
+        
+        
+        let title: String
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+        } else if difference < 5 {
+            title = "Almost had it!"
+            if difference == 1 {
+                points += 50
+            }
+        } else if difference < 10 {
+            title = "Pritty good!"
+        } else {
+            title = "Not even close..."
+        }
+        
         score += points
         
-       
-        
         let alert = UIAlertController(
-            title: "Hello World!",
+            title: title,
             message: message,
             preferredStyle: .alert)
         
