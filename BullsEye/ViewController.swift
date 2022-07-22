@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound()
+        startNewGame()
     }
 
     @IBAction func showAlert() {
@@ -76,6 +76,13 @@ class ViewController: UIViewController {
         currentValue = 50
         slider.value = Float(currentValue)
         updateLabels()
+    }
+    
+    
+    @IBAction func startNewGame() {
+        score = 0
+        round = 0
+        startNewRound()
     }
     
     func updateLabels() {
